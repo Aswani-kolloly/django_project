@@ -1,0 +1,53 @@
+{% extends 'medical/base.html' %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 table-responsive">
+
+
+{% if med_list %}
+<table class=" table table-light table-striped table-hover">
+
+    <tr>
+        <th>ID</th>
+        <th>Medicine</th>
+        <th>Dose</th>
+        <th>Quantity</th>
+        <th>Pending</th>
+        <th>Actions</th>
+
+    </tr>
+    {% for obj in med_list %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.dose  }}</td>
+        <td>{{ obj.quantity }}</td>
+        <td>{{ obj.pending }}</td>
+
+        <td>
+            <form action="" method="post" class="d-flex" >{%csrf_token%}
+
+                <input type="number" name="qty" min="1" max="{{obj.pending}}" style="width:18rem;" class="form-control" placeholder="Enter Quantity">
+                <input type="submit" class="form-control btn-primary mx-3"  value="save">
+                <input type="text" name="med_id" value="{{obj.id}}" hidden>
+            </form>
+        </td>
+
+    </tr>
+    {%endfor%}
+</table>
+
+{% else %}
+            <h4>{{message}}</h4><a href="{% url 'pending-prescriptions' cardnum %}">Back to Prescription View</a>
+{% endif %}
+</div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+{%  endblock %}

@@ -1,0 +1,61 @@
+{% extends 'medical/base.html' %}
+
+{% block body_block %}
+
+{% include "medical/flash-messages.html" %}
+<!-- [ form-element ] start -->
+<div class="container">
+        <div class="row align-items-center justify-content-center">
+
+<div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>ADD PRESCRIPTION</h5><a class="btn btn-info" style="background-color:#4680ff;color:white;float:right" href="{% url 'doctors-dashboard'%}">BACK</a>
+                    </div>
+                    <div class="card-body">
+
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="row ">
+                            <div class="col-md-6">
+                                <div class="  form-group">
+                                    <label >Card no.</label>
+                                <input type="text" class="form-control" readonly value="{{ cardnum }}">
+                                </div>
+                                <div class="  form-group">
+                                    <label> Name</label>
+                                <input type="text" class="form-control" readonly value="{{ patient_details.name }}">
+                                </div>
+                                <div class="  form-group">
+                                    <label >Blood type</label>
+                                <input type="text" class="form-control" readonly value="{{ patient_details.blood_type }}">
+                                </div>
+                            </div>
+            <div class="col-md-6">
+                                <div class="  form-group">
+                                    <label >Allergies if any:</label>
+                               <input type="text" class="form-control" readonly value="{{ patient_details.allergy }}">
+                                </div>
+
+                            <div class=" form-group">
+                            <label >Remarks:</label>
+                            <textarea rows="7" class="form-control" cols="70" name="remarks" required></textarea>
+                            </div>
+                            <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+
+                            <button type="submit" class="btn  btn-primary">Submit</button>
+
+                            </div></div>
+
+        </div>
+
+            <</form>
+                    </div></div></div></div></div>
+</div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+{%  endblock %}

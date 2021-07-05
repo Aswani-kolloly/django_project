@@ -1,0 +1,29 @@
+{% extends 'medical/base.html' %}
+{% block body_block %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card align-items-center justify-content-center py-3">
+
+
+<form action="" method="post" class="m-5">{%csrf_token%}
+    <label >Enter Card Number</label>
+    <div class=" row align-items-center justify-content-center">
+    <input type="text" name="cardnum" class="form-control mb-5" required>
+    <input type="submit" name="viewpres" value="View pending prescriptions" class="btn btn-block btn-primary shadow my-2">
+    </div>
+    </form>
+
+
+              </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+
+
+
+{%  endblock %}

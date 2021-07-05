@@ -1,0 +1,55 @@
+{% extends 'medical/base.html' %}
+{%load static%}
+{%block custom_style%}
+<link rel="stylesheet" href="{% static 'css/auth_style.css' %}">
+{%endblock%}
+{%block header_block%}
+{%endblock%}
+{% block body_block %}
+
+<!-- [ auth-signin ] start -->
+<div class="auth-wrapper">
+	<div class="auth-content">
+		<div class="card">
+
+			<div class="row align-items-center text-center">
+				<div class="col-md-12">
+					<div class="card-body">
+
+						<h4 class="mb-3 f-w-400">Signin</h4>
+						<form action="" method="post">{%csrf_token%}
+
+                        <div class="form-group">
+
+                            <input type="text" name="username" class="form-control py-3"  placeholder="Username">
+
+                        </div>
+                        <div class="form-group">
+
+                            <input type="password" name="pass" class="form-control py-3"  placeholder="Password">
+                        </div>
+							{% for message in messages %}
+<div class="container-fluid ">
+<!--<div class="alert {{ message.tags }} " role="alert" >
+{{ message }}
+</div>-->
+<div class="mt-2" style="color:red;font-size:14px;">{{message}}</div>
+</div>
+{% endfor %}
+							<input type="submit" class="btn btn-block btn-primary mb-4 mt-4 py-2" value="Signin">
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- [ auth-signin ] end -->
+
+
+{%endblock%}

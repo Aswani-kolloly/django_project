@@ -1,0 +1,100 @@
+{% extends 'medical/base.html' %}
+
+{% block body_block %}
+
+{% include "medical/flash-messages.html" %}
+<!-- [ form-element ] start -->
+<div class="container">
+        <div class="row align-items-center justify-content-center">
+
+<div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>PATIENT REGISTRATION</h5><a class="btn btn-info" style="background-color:#4680ff;color:white;float:right" href="{% url 'agent-dashboard'%}">BACK</a>
+                    </div>
+                    <div class="card-body">
+                    <form method="POST" action="" enctype="multipart/form-data"> {% csrf_token %}             <!-- row starts here-->
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="  form-group">
+                                    <label  >Date</label>
+                                    {{register_form.date}}
+                                    {{register_form.errors.date}}
+                                </div>
+
+                                <div class="  form-group">
+                                    <label  >Patient's name</label>
+                                    {{register_form.name}}
+                                    {{register_form.errors.name}}
+                                </div>
+                                 <div class=" form-group">
+                                    <label>Gender</label>
+                                    {{register_form.gender}}
+                                        {{register_form.errors.gender}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Date of Birth</label>
+                                    {{register_form.dob}}
+                                        {{register_form.errors.dob}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Photo</label>
+                                    {{register_form.image}}
+                                        {{register_form.errors.image}}
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+
+                            <div class=" form-group">
+                                    <label>Card No.</label>
+                                    {{register_form.card_num}}
+                                        {{register_form.errors.card_num}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Agent Name</label>
+                                    {{register_form.agent}}
+
+                                </div>
+
+                            <div class=" form-group">
+                                    <label>Emergency Contact</label>
+                                    {{register_form.emergency_contact}}
+                                        {{register_form.errors.emergency_contact}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Blood Type</label>
+                                    {{register_form.blood_type}}
+                                        {{register_form.errors.blood_type}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Allergies </label>
+                                    {{register_form.allergy}}
+                                        {{register_form.errors.allergy}}
+                                </div>
+
+                                    <div class="form-group row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+
+                                    <input type="submit" class="btn  btn-primary">
+
+                                    </div></div>
+
+                            </div>
+                        </div>
+                        <!-- row ends here-->
+
+
+
+
+
+
+
+                        <!--image part ends here-->
+</form>
+                    </div>
+                </div><!-- [ form-element ] end -->
+
+
+{%  endblock %}

@@ -1,0 +1,43 @@
+{% extends 'medical/base.html' %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 table-responsive">
+
+
+{% if med_list %}
+            <a href="{%url 'old-prescriptions' cardnum%}">Back to Prescription list</a>
+<table class=" table table-light table-striped table-hover">
+
+    <tr>
+        <th>ID</th>
+        <th>Medicine</th>
+        <th>Dose</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+
+         </tr>
+    {% for obj in med_list %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.dose  }}</td>
+        <td>{{ obj.quantity }}</td>
+        <td><a href="{%url 'edit-old-med'  pres_id obj.id cardnum%}" style="color:Blue;font-size:17px;">Edit</a></td>
+        </tr>
+    {%endfor%}
+</table>
+
+{% else %}
+<h4>{{message}}</h4>
+{% endif %}
+</div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+
+
+{%  endblock %}

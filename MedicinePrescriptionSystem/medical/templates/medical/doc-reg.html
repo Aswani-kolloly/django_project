@@ -1,0 +1,79 @@
+{% extends 'medical/base.html' %}
+
+{% block body_block %}
+
+{% include "medical/flash-messages.html" %}
+<!-- [ form-element ] start -->
+<div class="container">
+        <div class="row align-items-center justify-content-center">
+
+<div class="col-sm-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>DOCTOR REGISTRATION</h5><a class="btn btn-info" style="background-color:#4680ff;color:white;float:right" href="{% url 'agent-dashboard'%}">BACK</a>
+                    </div>
+                    <div class="card-body">
+                    <form method="POST" action="" enctype="multipart/form-data" > {% csrf_token %}             <!-- row starts here-->
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="  form-group">
+                                    <label  >Username</label>
+                                    {{register_form.username}}
+                                    {{register_form.errors.username}}
+                                </div>
+                                 <div class=" form-group">
+                                    <label>Password</label>
+                                    {{register_form.password}}
+                                        {{register_form.errors.password}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Photo</label>
+                                    {{doc_form.image}}
+                                        {{doc_form.errors.image}}
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+
+                            <div class=" form-group">
+                                    <label>Specialization</label>
+                                    {{doc_form.specialization}}
+                                        {{doc_form.errors.specialization}}
+                                </div>
+                                <div class=" form-group">
+                                    <label>Hospital</label>
+                                    {{doc_form.hospital}}
+                                    {{doc_form.errors.hospital}}
+                                </div>
+
+                                <div class=" form-group">
+                                    <label>Agent </label>
+                                    {{doc_form.agent}}
+                                        {{doc_form.errors.agent}}
+                                </div>
+
+                                    <div class="form-group row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+
+                                    <input type="submit" class="btn  btn-primary">
+
+                                    </div></div>
+
+                            </div>
+                        </div>
+                        <!-- row ends here-->
+
+
+
+
+
+
+
+                        <!--image part ends here-->
+</form>
+                    </div>
+                </div><!-- [ form-element ] end -->
+
+
+{%  endblock %}
